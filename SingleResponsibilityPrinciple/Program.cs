@@ -32,6 +32,7 @@ namespace SingleResponsibilityPrinciple
 
             //These are three different trade providers that read from different sources
             ITradeDataProvider fileProvider = new StreamTradeDataProvider(tradeStream, logger);
+            AdjustTradeDataProvider 
             //ITradeDataProvider urlProvider = new URLTradeDataProvider(tradeURL, logger);
             //ITradeDataProvider restfulProvider = new RestfulTradeDataProvider(restfulURL, logger);
 
