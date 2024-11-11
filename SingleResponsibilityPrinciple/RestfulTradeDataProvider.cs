@@ -36,13 +36,10 @@ namespace SingleResponsibilityPrinciple
             return tradesString;
         }
 
-        public IEnumerable<string> GetTradeData()
+        public async Task<List<string>> GetTradeData()
         {
-            Task<List<string>> task = Task.Run(() => GetTradeAsync());
-            task.Wait();
-
-            List<string> tradeList = task.Result;
-            return tradeList;
+            List<string> trades = await GetTradeAsync();
+            return trades ?? Task.FromResult(new List<string>());
         }
     }
 }

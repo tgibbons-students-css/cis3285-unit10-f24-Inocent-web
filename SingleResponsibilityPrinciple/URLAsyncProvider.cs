@@ -16,16 +16,11 @@ namespace SingleResponsibilityPrinciple
 
         public Task <IEnumerable<string>> GetTradeAsync()
         {
-            Task<IEnumerable <string>> task = Task.Run(() => origProvider.GetTradeAsync());
-            return task;
+            return origProvider.GetTradeAsync();
         }
-        public IEnumerable<string> GetTradeData()
+        public Task<IEnumerable<string>> GetTradeDataAsync()
         {
-            Task<IEnumerable<string>> Task = Task.Run(() => GetTradeAsync());
-            Task.Wait();
-
-            IEnumerable <string>tradelist = Task.Result;
-            return tradelist;
-        }
+            return GetTradeAsync();
+        }  
     }
 }

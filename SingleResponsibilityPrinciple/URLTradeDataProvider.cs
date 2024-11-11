@@ -17,9 +17,9 @@ namespace SingleResponsibilityPrinciple
             this.logger = logger;
         }
 
-        public IEnumerable<string> GetTradeData()
+        public async Task<IEnumerable<string>> GetTradeDataAsync()
         {
-            List<string> tradeData = new List<string>();
+            var tradeData = new List<string>();
             logger.LogInfo("Reading trades from URL: " + url);
 
             using (HttpClient client = new HttpClient())
